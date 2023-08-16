@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PhoneBookTest {
     @Test
@@ -25,5 +24,14 @@ public class PhoneBookTest {
         phoneBook.add("Alice", "12345");
         assertEquals("12345", phoneBook.findByName("Alice"));
         assertNull(phoneBook.findByName("Eve"));
+    }
+
+    @Test
+    public void testPrintAllNames() {
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Charlie", "55555");
+        phoneBook.add("Alice", "12345");
+        phoneBook.add("Bob", "23456");
+        assertArrayEquals(new String[]{"Alice", "Bob", "Charlie"}, phoneBook.printAllNames());
     }
 }
