@@ -24,6 +24,6 @@ public class PhoneBook {
     }
 
     public String[] printAllNames() {
-        return new String[0]; // Заглушка
+        return contacts.keySet().stream().sorted().toArray(String[]::new);
     }
 }
